@@ -13,7 +13,7 @@ const links = ["Women", "Men", "Accessories", "Cart", "Contact"]
 
 export function Navbar() {
   return (
-    <header className="m-4 flex items-center -space-x-24 rounded-none border p-4">
+    <header className="m-4 flex items-center gap-4 rounded-2xl border p-4">
       <Link href="/" className="text-xl font-semibold tracking-[0.3em] uppercase">
         Maison
       </Link>

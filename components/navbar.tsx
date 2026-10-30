@@ -1,4 +1,6 @@
 import Link from "next/link"
+import { Menu } from "lucide-react"
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -17,7 +19,7 @@ export function Navbar() {
       <Link href="/" className="text-xl font-semibold tracking-[0.3em] uppercase">
         Maison
       </Link>
-      <NavigationMenu viewport={false} className="flex-initial">
+      <NavigationMenu viewport={false} className="hidden flex-initial md:flex">
         <NavigationMenuList className="flex-wrap justify-start">
           {links.map((link) => (
             <NavigationMenuItem key={link}>
@@ -29,6 +31,19 @@ export function Navbar() {
         </NavigationMenuList>
       </NavigationMenu>
       <Button className="ml-auto">Shop Now</Button>
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="outline" size="icon" className="md:hidden" aria-label="Open menu">
+            <Menu />
+          </Button>
+        </SheetTrigger>
+        <SheetContent className="p-6">
+          <SheetTitle>Menu</SheetTitle>
+          {links.map((link) => (
+            <a key={link} href="#" className="text-lg">{link}</a>
+          ))}
+        </SheetContent>
+      </Sheet>
     </header>
   )
 }
